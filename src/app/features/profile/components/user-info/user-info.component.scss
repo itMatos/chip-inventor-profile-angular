@@ -4,13 +4,6 @@
   padding: 16px;
   gap: 15px;
 
-  .user-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    justify-content: left;
-  }
-
   .user-details {
     display: flex;
     flex-direction: column;
@@ -19,7 +12,7 @@
   .example-card {
     max-width: 400px;
   }
-  
+
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;

@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserProjectsComponent } from './components/user-projects/user-projects.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [MatCardModule, UserInfoComponent, UserProjectsComponent],
+  imports: [UserInfoComponent, UserProjectsComponent],
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
   user = {

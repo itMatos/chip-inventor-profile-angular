@@ -1,14 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { AvatarComponent, GridModule, TextColorDirective } from '@coreui/angular';
+import { AvatarModule, CardModule, GridModule } from '@coreui/angular';
 
 @Component({
   selector: 'app-user-info',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, AvatarComponent, TextColorDirective, GridModule],
+  imports: [GridModule, CardModule, AvatarModule],
   templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.css'],
+  styleUrls: ['./user-info.component.scss'],
 })
 export class UserInfoComponent {
   @Input() user!: {
@@ -18,4 +16,14 @@ export class UserInfoComponent {
     photo: string;
     projects: { name: string; description: string }[];
   };
+
+  get initials(): string {
+    if (!this.user || !this.user.name) {
+      return '';
+    }
+    return this.user.name
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase())
+      .join('');
+  }
 }

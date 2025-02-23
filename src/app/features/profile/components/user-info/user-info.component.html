@@ -1,33 +1,9 @@
-<c-container>
-  <c-row>
-    <c-col>One of three columns</c-col>
-    <c-col>One of three columns</c-col>
-    <c-col>One of three columns</c-col>
-  </c-row>
-</c-container>
-
-<mat-card class="user-info">
-  <c-avatar color="primary" textColor="black">JS</c-avatar>
-  <div class="user-details">
-    <h2>{{ user.name }}</h2>
-    <p>{{ user.email }}</p>
-  </div>
-</mat-card>
-<mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" />
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog
-      that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<c-card class="user-info">
+  <c-card-body class="d-flex align-items-center">
+    <c-avatar color="warning" status="success">{{ initials }}</c-avatar>
+    <div class="ms-3">
+      <h2 class="card-title">{{ user.name }}</h2>
+      <p class="card-text">{{ user.email }}</p>
+    </div>
+  </c-card-body>
+</c-card>

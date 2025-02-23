@@ -1,16 +1,12 @@
-<mat-card class="projects-card">
-  <h3>Projetos aaaaa</h3>
-  <mat-list>
-    <mat-list-item *ngFor="let project of projects">
-      <mat-icon matListIcon>folder</mat-icon>
-      <div>
-        <div>
-          <h4>{{ project.name }}</h4>
-        </div>
-        <div>
-          <p>{{ project.description }}</p>
-        </div>
-      </div>
-    </mat-list-item>
-  </mat-list>
-</mat-card>
+<div class="card projects-card">
+  <div class="card-body">
+    <h3 class="card-title">Projetos</h3>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let project of projects">
+        <i class="cil-folder me-2"></i>
+        <strong>{{ project.name }}</strong>
+        <p class="mb-0">{{ project.description }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
