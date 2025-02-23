@@ -8,7 +8,7 @@ import { UserProjectsComponent } from './components/user-projects/user-projects.
   standalone: true,
   imports: [MatCardModule, UserInfoComponent, UserProjectsComponent],
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
   user = {

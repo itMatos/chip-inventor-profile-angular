@@ -9,7 +9,7 @@ import { MatListModule } from '@angular/material/list';
   standalone: true,
   imports: [MatCardModule, MatListModule, MatIconModule, NgFor],
   templateUrl: './user-projects.component.html',
-  styleUrls: ['./user-projects.component.css'],
+  styleUrls: ['./user-projects.component.scss'],
 })
 export class UserProjectsComponent {
   @Input() projects!: { name: string; description: string }[];
