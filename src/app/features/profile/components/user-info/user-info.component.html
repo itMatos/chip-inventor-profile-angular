@@ -1,9 +1,11 @@
 <c-card class="user-info">
-  <c-card-body class="d-flex align-items-center">
-    <c-avatar color="warning" status="success">{{ initials }}</c-avatar>
-    <div class="ms-3">
-      <h2 class="card-title">{{ user.name }}</h2>
-      <p class="card-text">{{ user.email }}</p>
-    </div>
+  <c-avatar color="warning" status="success">{{ initials }}</c-avatar>
+  <c-card-body>
+    <h4 cCardTitle>{{ user.name }}</h4>
+    <p cCardText>
+      {{ user.email }}
+    </p>
+    <button cButton color="primary" shape="rounded-pill" size="lg">Enviar mensagem</button>
+    <button cButton color="light" shape="rounded-pill" size="lg">Favoritar</button>
   </c-card-body>
 </c-card>

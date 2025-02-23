@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'chip-inventor-angular';

@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { AvatarModule, CardModule, GridModule } from '@coreui/angular';
+import { AvatarModule, ButtonDirective, CardModule, GridModule } from '@coreui/angular';
 
 @Component({
   selector: 'app-user-info',
   standalone: true,
-  imports: [GridModule, CardModule, AvatarModule],
+  imports: [GridModule, CardModule, AvatarModule, ButtonDirective],
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss'],
 })

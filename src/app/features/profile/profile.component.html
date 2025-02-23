@@ -1,2 +1,31 @@
-<app-user-info [user]="user"></app-user-info>
-<app-user-projects [projects]="user.projects"></app-user-projects>
+<c-container fluid>
+  <app-user-info [user]="user"></app-user-info>
+
+  <c-nav layout="justified" variant="pills" class="p-2">
+    <c-nav-item>
+      <a (click)="selectedSection = 'projects'" [active]="selectedSection === 'projects'" cNavLink>
+        Projetos <c-badge color="secondary">9</c-badge></a
+      >
+    </c-nav-item>
+    <c-nav-item>
+      <a (click)="selectedSection = 'contributions'" [active]="selectedSection === 'contributions'" cNavLink>
+        Contribuições
+      </a>
+    </c-nav-item>
+    <c-nav-item>
+      <a (click)="selectedSection = 'about'" [active]="selectedSection === 'about'" cNavLink> Sobre </a>
+    </c-nav-item>
+  </c-nav>
+
+  <div [ngSwitch]="selectedSection">
+    <div *ngSwitchCase="'projects'">
+      <app-user-projects [projects]="user.projects"></app-user-projects>
+    </div>
+    <div *ngSwitchCase="'contributions'">
+      <p>Aqui estarão listadas as contribuições do usuário.</p>
+    </div>
+    <div *ngSwitchCase="'about'">
+      <p>Informações adicionais e biografia do usuário.</p>
+    </div>
+  </div>
+</c-container>
