@@ -1,5 +1,13 @@
+<c-container>
+  <c-row>
+    <c-col>One of three columns</c-col>
+    <c-col>One of three columns</c-col>
+    <c-col>One of three columns</c-col>
+  </c-row>
+</c-container>
+
 <mat-card class="user-info">
-  <img src="user.photo" alt="foto do usuário" class="user-photo" />
+  <c-avatar color="primary" textColor="black">JS</c-avatar>
   <div class="user-details">
     <h2>{{ user.name }}</h2>
     <p>{{ user.email }}</p>
@@ -11,12 +19,11 @@
     <mat-card-title>Shiba Inu</mat-card-title>
     <mat-card-subtitle>Dog Breed</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" />
   <mat-card-content>
     <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog
+      that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
     </p>
   </mat-card-content>
   <mat-card-actions>
