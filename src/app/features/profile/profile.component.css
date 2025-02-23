@@ -1,0 +1,7 @@
+.profile-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  margin: 50px auto;
+  padding: 20px;
+}
