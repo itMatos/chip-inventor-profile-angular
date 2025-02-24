@@ -10,7 +10,7 @@ import {
   GridModule,
   NavModule,
 } from '@coreui/angular';
-import { brandSet, cilFilter, cilPaperPlane } from '@coreui/icons';
+import { brandSet, cilFilter } from '@coreui/icons';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { ProjectFilters } from '../../../types/project.model';
 import { UserInfoComponent } from './components/user-info/user-info.component';
@@ -40,7 +40,7 @@ import { UserProjectsComponent } from './components/user-projects/user-projects.
 })
 export class ProfileComponent {
   constructor(private iconSet: IconSetService) {
-    this.iconSet.icons = { cilFilter, cilPaperPlane, ...brandSet };
+    this.iconSet.icons = { cilFilter, ...brandSet };
   }
   user = {
     name: 'Thiago Silva',
