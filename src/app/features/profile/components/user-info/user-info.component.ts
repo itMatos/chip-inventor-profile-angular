@@ -14,7 +14,7 @@ export class UserInfoComponent {
     email: string;
     phone: string;
     photo: string;
-    projects: { name: string; description: string }[];
+    projects: { title: string; description: string }[];
   };
 
   get initials(): string {

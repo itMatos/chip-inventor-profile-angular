@@ -1,12 +1,9 @@
 <div class="card projects-card">
   <div class="card-body">
-    <h3 class="card-title">Projetos</h3>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let project of projects">
-        <i class="cil-folder me-2"></i>
-        <strong>{{ project.name }}</strong>
-        <p class="mb-0">{{ project.description }}</p>
-      </li>
-    </ul>
+    <c-row [gutter]="4" class="mb-3" [md]="3" [xs]="1">
+      <c-col *ngFor="let project of projects">
+        <app-project-card [project]="project"></app-project-card>
+      </c-col>
+    </c-row>
   </div>
 </div>
