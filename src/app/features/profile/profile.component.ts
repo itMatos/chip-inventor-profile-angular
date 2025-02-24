@@ -22,27 +22,43 @@ export class ProfileComponent {
       {
         title: 'Digital Chip Design',
         description: 'Projeto para o design e implementação de chips digitais de alta performance.',
+        tags: ['Em andamento', 'Digital'],
       },
       {
         title: 'Analog Circuit Design',
         description: 'Projeto focado em circuitos analógicos para processamento de sinais de áudio e instrumentação.',
+        tags: ['Finalizado', 'Analógico'],
       },
       {
         title: 'Mixed-Signal Integration',
         description: 'Projeto que integra tecnologias digitais e analógicas em um único chip para aplicações híbridas.',
+        tags: ['Em andamento', 'Digital', 'Analógico'],
       },
       {
         title: 'FPGA Development',
         description: 'Projeto para o desenvolvimento e prototipagem de sistemas digitais utilizando FPGAs.',
+        tags: ['Prototipagem', 'Digital'],
       },
       {
         title: 'ASIC Design',
         description: 'Projeto de design e otimização de ASICs para aplicações específicas de alta eficiência.',
+        tags: ['Em andamento', 'ASIC'],
       },
       {
         title: 'Embedded Systems',
         description:
           'Projeto de sistemas embarcados que combinam chips digitais, analógicos e mistos para soluções completas.',
+        tags: ['Finalizado', 'Sistemas Embarcados'],
+      },
+      {
+        title: 'Digital Signal Processing',
+        description: 'Projeto para o processamento e análise de sinais digitais de áudio e instrumentação.',
+        tags: ['Digital', 'DSP'],
+      },
+      {
+        title: 'Microcontroller Programming',
+        description: 'Projeto de programação de microcontroladores para aplicações de controle e automação.',
+        tags: ['Microcontrolador', 'Em andamento'],
       },
     ],
   };

@@ -8,8 +8,13 @@
     <p cCardText>
       {{ project.description }}
     </p>
+    <button cButton>Favoritar</button>
   </c-card-body>
   <c-card-footer>
-    <small class="text-medium-emphasis">Last updated 3 mins ago</small>
+    <div>
+      <c-badge *ngFor="let tag of project.tags" color="primary" class="me-1">
+        {{ tag }}
+      </c-badge>
+    </div>
   </c-card-footer>
 </c-card>
