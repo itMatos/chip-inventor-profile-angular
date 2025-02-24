@@ -19,7 +19,24 @@
 
   <div [ngSwitch]="selectedSection">
     <div *ngSwitchCase="'projects'">
-      <app-user-projects [projects]="user.projects"></app-user-projects>
+      <div class="d-flex justify-content-end mb-3">
+        <c-container>
+          <c-dropdown [ngStyle]="{ 'min-width.px': 300 }">
+            <button cButton cDropdownToggle color="secondary">
+              <svg cIcon name="cilFilter" size="md" title="Paper Plane Icon"></svg>
+              Filtrar
+            </button>
+            <div cDropdownMenu>
+              <button cDropdownItem (click)="setFilter('All')">Todos</button>
+              <button cDropdownItem (click)="setFilter('Digital')">Digital</button>
+              <button cDropdownItem (click)="setFilter('Analog')">Analógico</button>
+            </div>
+          </c-dropdown>
+        </c-container>
+      </div>
+      <div>
+        <app-user-projects [projects]="filteredProjects"></app-user-projects>
+      </div>
     </div>
     <div *ngSwitchCase="'contributions'">
       <p>Aqui estarão listadas as contribuições do usuário.</p>

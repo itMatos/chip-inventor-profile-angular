@@ -1,18 +1,47 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BadgeComponent, GridModule, NavModule } from '@coreui/angular';
+import {
+  BadgeComponent,
+  ButtonDirective,
+  DropdownItemDirective,
+  DropdownMenuDirective,
+  DropdownModule,
+  DropdownToggleDirective,
+  GridModule,
+  NavModule,
+} from '@coreui/angular';
+import { brandSet, cilFilter, cilPaperPlane } from '@coreui/icons';
+import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { ProjectFilters } from '../../../types/project.model';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserProjectsComponent } from './components/user-projects/user-projects.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, UserInfoComponent, UserProjectsComponent, NavModule, GridModule, BadgeComponent],
+  imports: [
+    CommonModule,
+    UserInfoComponent,
+    UserProjectsComponent,
+    NavModule,
+    GridModule,
+    BadgeComponent,
+    DropdownModule,
+    DropdownMenuDirective,
+    DropdownItemDirective,
+    DropdownToggleDirective,
+    ButtonDirective,
+    IconModule,
+  ],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [IconSetService],
 })
 export class ProfileComponent {
+  constructor(private iconSet: IconSetService) {
+    this.iconSet.icons = { cilFilter, cilPaperPlane, ...brandSet };
+  }
   user = {
     name: 'Thiago Silva',
     email: 'thiagosilva@gmail.com',
@@ -27,7 +56,7 @@ export class ProfileComponent {
       {
         title: 'Analog Circuit Design',
         description: 'Projeto focado em circuitos analógicos para processamento de sinais de áudio e instrumentação.',
-        tags: ['Finalizado', 'Analógico'],
+        tags: ['Finalizado', 'Analog'],
       },
       {
         title: 'Mixed-Signal Integration',
@@ -64,4 +93,19 @@ export class ProfileComponent {
   };
 
   selectedSection: 'projects' | 'contributions' | 'about' = 'projects';
+
+  selectedFilter: ProjectFilters = 'All';
+
+  filterOptions: ProjectFilters[] = ['All', 'Digital', 'Analog', 'Mixed'];
+
+  get filteredProjects() {
+    if (this.selectedFilter === 'All') {
+      return this.user.projects;
+    }
+    return this.user.projects.filter((project) => project.tags.includes(this.selectedFilter));
+  }
+
+  setFilter(filter: ProjectFilters) {
+    this.selectedFilter = filter;
+  }
 }
