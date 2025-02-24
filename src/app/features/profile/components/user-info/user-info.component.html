@@ -1,11 +1,28 @@
-<c-card class="user-info">
-  <c-avatar color="warning" status="success">{{ initials }}</c-avatar>
-  <c-card-body>
-    <h4 cCardTitle>{{ user.name }}</h4>
-    <p cCardText>
-      {{ user.email }}
-    </p>
-    <button cButton color="primary" shape="rounded-pill" size="lg">Enviar mensagem</button>
-    <button cButton color="light" shape="rounded-pill" size="lg">Favoritar</button>
-  </c-card-body>
-</c-card>
+<c-container fluid class="my-2">
+  <c-row>
+    <c-col>
+      <c-card class="user-info" class="border-0">
+        <div class="d-flex flex-column align-items-center">
+          <c-card-body>
+            <c-avatar color="warning" status="success" class="avatar-xl">{{ initials }}</c-avatar>
+          </c-card-body>
+
+          <c-card-body class="mx-auto">
+            <h4 cCardTitle>{{ user.name }}</h4>
+            <p cCardText>
+              {{ user.email }}
+            </p>
+          </c-card-body>
+
+          <c-card-body>
+            <button cButton color="primary" shape="rounded-pill">Enviar mensagem</button>
+            <button cButton color="light" shape="rounded-pill">Favoritar</button>
+          </c-card-body>
+        </div>
+      </c-card>
+    </c-col>
+    <c-col class="my-auto">
+      <p cCardText>Aqui vai ter uma descricao do usuario, com informacoes adicionais e biografia.</p>
+    </c-col>
+  </c-row>
+</c-container>
