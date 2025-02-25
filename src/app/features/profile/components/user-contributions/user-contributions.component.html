@@ -2,7 +2,7 @@
   <c-card class="p-3">
     <div class="d-flex align-items-center">
       <c-avatar size="lg" class="me-3">
-        <img [src]="contribution.user.name[0]" alt="Avatar" />
+        <c-avatar color="warning" status="success" class="avatar-xl">TS</c-avatar>
       </c-avatar>
 
       <div>
@@ -18,14 +18,14 @@
           <strong>{{ contribution.project.title }}</strong>
         </div>
         <c-button color="light" shape="rounded-pill" class="d-flex align-items-center">
-          <c-icon name="cil-star" class="me-2"></c-icon> Star
+          <fa-icon [icon]="faStar" size="lg" title="Filter Icon" class="me-2" style="color: #ffd43b"></fa-icon>
         </c-button>
       </div>
       <div class="d-flex align-items-center text-muted mt-2">
-        <div class="me-3">
+        <c-button color="light" shape="rounded-pill" size="sm" class="me-2">
           <c-icon name="cil-circle" class="me-1" style="color: gray"></c-icon>
           {{ contribution.project.tags[0] }}
-        </div>
+        </c-button>
       </div>
     </c-card>
   </c-card>

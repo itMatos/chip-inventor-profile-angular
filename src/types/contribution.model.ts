@@ -1,9 +1,13 @@
 import { Project } from './project.model';
 import { User } from './user.model';
 
+export interface ActionsContribution {
+  action: 'favoritou' | 'fez fork' | 'criou';
+}
+
 export interface Contribution {
   user: User;
-  action: 'starred' | 'forked' | 'created';
+  action: ActionsContribution;
   timestamp: string;
   project: Project;
 }

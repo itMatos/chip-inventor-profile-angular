@@ -12,7 +12,7 @@ import {
 } from '@coreui/angular';
 import { brandSet, cilFilter } from '@coreui/icons';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
-import { Contribution } from '../../../types/contribution.model';
+import { ActionsContribution, Contribution } from '../../../types/contribution.model';
 import { ProjectFilters } from '../../../types/project.model';
 import { User } from '../../../types/user.model';
 import { AboutComponent } from './components/about/about.component';
@@ -120,7 +120,7 @@ export class ProfileComponent {
   contributions: Contribution[] = [
     {
       user: this.user,
-      action: 'starred',
+      action: 'favoritou' as unknown as ActionsContribution,
       timestamp: '5 horas atrás',
       project: {
         title: 'Digital Chip Design',
