@@ -15,14 +15,25 @@
           </c-card-body>
 
           <c-card-body>
-            <button cButton color="primary" shape="rounded-pill">Enviar mensagem</button>
-            <button cButton color="light" shape="rounded-pill">Favoritar</button>
+            <button cButton color="primary" shape="rounded-pill">
+              <svg [cIcon]="icons.cilEnvelopeClosed" size="lg" title="List Icon" class="align-middle"></svg>
+              Enviar mensagem
+            </button>
+
+            <button cButton color="light" shape="rounded-pill">
+              <svg [cIcon]="icons.cilStar" size="lg" title="List Icon" class="me-2"></svg>
+              <span>Favoritar</span>
+            </button>
           </c-card-body>
         </div>
       </c-card>
     </c-col>
     <c-col class="my-auto">
-      <p cCardText>Aqui vai ter uma descricao do usuario, com informacoes adicionais e biografia.</p>
+      <p cCardText class="justify-content-center align-items-center">
+        Thiago Silva é um engenheiro de computação especializado em arquitetura de chips, com experiência no
+        desenvolvimento e otimização de circuitos de alto desempenho. Apaixonado por inovação, ele trabalha na criação
+        de soluções eficientes e escaláveis para hardware avançado.
+      </p>
     </c-col>
   </c-row>
 </c-container>
