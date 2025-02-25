@@ -1,0 +1,26 @@
+<c-container>
+  <c-card class="mb-4">
+    <c-card-body>
+      <h4>Formação Acadêmica</h4>
+      <p>
+        <strong>{{ education.degree }}</strong
+        ><br />
+        {{ education.institution }}<br />
+        <small>{{ education.period }}</small>
+      </p>
+    </c-card-body>
+  </c-card>
+
+  <c-card>
+    <c-card-body>
+      <h4>Experiência Profissional</h4>
+      <c-list-group>
+        <c-list-group-item *ngFor="let exp of experiences">
+          <h5>{{ exp.role }} - {{ exp.company }}</h5>
+          <small class="text-muted">{{ exp.period }}</small>
+          <p class="mt-2">{{ exp.description }}</p>
+        </c-list-group-item>
+      </c-list-group>
+    </c-card-body>
+  </c-card>
+</c-container>

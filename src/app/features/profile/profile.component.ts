@@ -15,6 +15,7 @@ import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { Contribution } from '../../../types/contribution.model';
 import { ProjectFilters } from '../../../types/project.model';
 import { User } from '../../../types/user.model';
+import { AboutComponent } from './components/about/about.component';
 import { UserContributionsComponent } from './components/user-contributions/user-contributions.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserProjectsComponent } from './components/user-projects/user-projects.component';
@@ -36,6 +37,7 @@ import { UserProjectsComponent } from './components/user-projects/user-projects.
     DropdownToggleDirective,
     ButtonDirective,
     IconModule,
+    AboutComponent,
   ],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
