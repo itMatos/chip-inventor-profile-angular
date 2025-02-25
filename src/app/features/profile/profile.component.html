@@ -40,6 +40,9 @@
     </div>
     <div *ngSwitchCase="'contributions'">
       <p>Aqui estarão listadas as contribuições do usuário.</p>
+      <div>
+        <app-user-contributions [contributions]="contributions"></app-user-contributions>
+      </div>
     </div>
     <div *ngSwitchCase="'about'">
       <p>Informações adicionais e biografia do usuário.</p>

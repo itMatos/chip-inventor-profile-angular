@@ -12,7 +12,10 @@ import {
 } from '@coreui/angular';
 import { brandSet, cilFilter } from '@coreui/icons';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { Contribution } from '../../../types/contribution.model';
 import { ProjectFilters } from '../../../types/project.model';
+import { User } from '../../../types/user.model';
+import { UserContributionsComponent } from './components/user-contributions/user-contributions.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserProjectsComponent } from './components/user-projects/user-projects.component';
 
@@ -23,6 +26,7 @@ import { UserProjectsComponent } from './components/user-projects/user-projects.
     CommonModule,
     UserInfoComponent,
     UserProjectsComponent,
+    UserContributionsComponent,
     NavModule,
     GridModule,
     BadgeComponent,
@@ -42,7 +46,7 @@ export class ProfileComponent {
   constructor(private iconSet: IconSetService) {
     this.iconSet.icons = { cilFilter, ...brandSet };
   }
-  user = {
+  user: User = {
     name: 'Thiago Silva',
     email: 'thiagosilva@gmail.com',
     phone: '+55 11 99999-9999',
@@ -51,43 +55,43 @@ export class ProfileComponent {
       {
         title: 'Digital Chip Design',
         description: 'Projeto para o design e implementação de chips digitais de alta performance.',
-        tags: ['Em andamento', 'Digital'],
+        tags: ['Digital'],
       },
       {
         title: 'Analog Circuit Design',
         description: 'Projeto focado em circuitos analógicos para processamento de sinais de áudio e instrumentação.',
-        tags: ['Finalizado', 'Analog'],
+        tags: ['Analog'],
       },
       {
         title: 'Mixed-Signal Integration',
         description: 'Projeto que integra tecnologias digitais e analógicas em um único chip para aplicações híbridas.',
-        tags: ['Em andamento', 'Digital', 'Analógico'],
+        tags: ['Mixed'],
       },
       {
         title: 'FPGA Development',
         description: 'Projeto para o desenvolvimento e prototipagem de sistemas digitais utilizando FPGAs.',
-        tags: ['Prototipagem', 'Digital'],
+        tags: ['Digital'],
       },
       {
         title: 'ASIC Design',
         description: 'Projeto de design e otimização de ASICs para aplicações específicas de alta eficiência.',
-        tags: ['Em andamento', 'ASIC'],
+        tags: ['Digital'],
       },
       {
         title: 'Embedded Systems',
         description:
           'Projeto de sistemas embarcados que combinam chips digitais, analógicos e mistos para soluções completas.',
-        tags: ['Finalizado', 'Sistemas Embarcados'],
+        tags: ['Mixed'],
       },
       {
         title: 'Digital Signal Processing',
         description: 'Projeto para o processamento e análise de sinais digitais de áudio e instrumentação.',
-        tags: ['Digital', 'DSP'],
+        tags: ['Analog'],
       },
       {
         title: 'Microcontroller Programming',
         description: 'Projeto de programação de microcontroladores para aplicações de controle e automação.',
-        tags: ['Microcontrolador', 'Em andamento'],
+        tags: ['Analog'],
       },
     ],
   };
@@ -102,10 +106,25 @@ export class ProfileComponent {
     if (this.selectedFilter === 'All') {
       return this.user.projects;
     }
-    return this.user.projects.filter((project) => project.tags.includes(this.selectedFilter));
+    return this.user.projects.filter(
+      (project) => this.selectedFilter === 'All' || project.tags.includes(this.selectedFilter)
+    );
   }
 
   setFilter(filter: ProjectFilters) {
     this.selectedFilter = filter;
   }
+
+  contributions: Contribution[] = [
+    {
+      user: this.user,
+      action: 'starred',
+      timestamp: '5 horas atrás',
+      project: {
+        title: 'Digital Chip Design',
+        description: 'Projeto para o design e implementação de chips digitais de alta performance.',
+        tags: ['Digital'],
+      },
+    },
+  ];
 }
