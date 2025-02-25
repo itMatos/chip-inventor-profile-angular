@@ -4,6 +4,7 @@ import {
   BadgeModule,
   ButtonDirective,
   CardModule,
+  ModalModule,
   ProgressComponent,
   ToastBodyComponent,
   ToastComponent,
@@ -29,6 +30,7 @@ import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
     ToastComponent,
     ToastHeaderComponent,
     ToastBodyComponent,
+    ModalModule,
   ],
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss'],
@@ -37,6 +39,7 @@ export class ProjectCardComponent {
   @Input() project!: { title: string; description: string; tags: string[] };
 
   liked = false;
+  confirmModalVisible = false;
   solidHeart = solidHeart;
   regularHeart = regularHeart;
 
@@ -64,13 +67,6 @@ export class ProjectCardComponent {
     this.visible.update((value) => !value);
   }
 
-  toggleLike() {
-    this.liked = !this.liked;
-
-    this.visible.set(true);
-    setTimeout(() => this.visible.set(false), 3000);
-  }
-
   onVisibleChange($event: boolean) {
     this.visible.set($event);
     this.percentage.set(this.visible() ? this.percentage() : 0);
@@ -78,5 +74,25 @@ export class ProjectCardComponent {
 
   onTimerChange($event: number) {
     this.percentage.set($event * 25);
+  }
+
+  onLikeClick() {
+    if (this.liked) {
+      this.confirmModalVisible = true;
+    } else {
+      this.liked = true;
+      this.showToast();
+    }
+  }
+
+  confirmDislike() {
+    this.liked = false;
+    this.confirmModalVisible = false;
+    this.showToast();
+  }
+
+  showToast() {
+    this.visible.set(true);
+    setTimeout(() => this.visible.set(false), 3000);
   }
 }
