@@ -8,7 +8,18 @@
     <p cCardText>
       {{ project.description }}
     </p>
-    <button cButton>Favoritar</button>
+    <button cButton (click)="toggleLike()" [cTooltip]="liked ? 'Descurtir' : 'Curtir'">
+      <fa-icon [icon]="liked ? solidHeart : regularHeart" size="lg"></fa-icon>
+    </button>
+    <c-toaster [placement]="position" class="p-3" position="fixed">
+      <c-toast (timer)="onTimerChange($event)" (visibleChange)="onVisibleChange($event)" [visible]="visible()">
+        <c-toast-header> {{ project.title }} </c-toast-header>
+        <c-toast-body>
+          <p>{{ liked ? likedProjectMessage : unlikedProjectMessage }}</p>
+          <c-progress thin [value]="percentage()" />
+        </c-toast-body>
+      </c-toast>
+    </c-toaster>
   </c-card-body>
   <c-card-footer>
     <div>
